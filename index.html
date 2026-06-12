@@ -1,64 +1,280 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
 
-  <title>Ashi's Meal Plan</title>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ashi's Diet Tracker</title>
 
   <style>
 
-    body {
+    * {
+
+      box-sizing: border-box;
 
       font-family: Arial, sans-serif;
 
-      background: #fff4f7;
+    }
 
-      color: #333;
+    body {
 
-      padding: 25px;
+      margin: 0;
+
+      min-height: 100vh;
+
+      background: linear-gradient(135deg, #ffe3ec, #fff7fb, #ffd1e3);
+
+      color: #3b2430;
+
+      padding: 20px;
 
     }
 
-    .box {
+    .container {
 
-      max-width: 700px;
+      max-width: 950px;
 
       margin: auto;
 
-      background: white;
+    }
 
-      padding: 25px;
+    .hero {
 
-      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.85);
 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 28px;
+
+      border-radius: 28px;
+
+      text-align: center;
+
+      box-shadow: 0 15px 40px rgba(214, 51, 132, 0.18);
+
+      border: 2px solid #ffd1e3;
+
+      margin-bottom: 22px;
 
     }
 
-    h1, h2 {
+    h1 {
 
       color: #d63384;
 
-      text-align: center;
+      font-size: 34px;
+
+      margin-bottom: 8px;
+
+    }
+
+    .subtitle {
+
+      color: #7a3a59;
+
+      font-size: 16px;
+
+    }
+
+    .grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+      gap: 18px;
 
     }
 
     .card {
 
+      background: rgba(255, 255, 255, 0.9);
+
+      border-radius: 24px;
+
+      padding: 20px;
+
+      box-shadow: 0 10px 25px rgba(214, 51, 132, 0.14);
+
+      border: 1px solid #ffd1e3;
+
+    }
+
+    .card h2 {
+
+      margin-top: 0;
+
+      color: #c2185b;
+
+      font-size: 21px;
+
+    }
+
+    input, textarea {
+
+      width: 100%;
+
+      padding: 12px;
+
+      border-radius: 14px;
+
+      border: 1px solid #f5a8c7;
+
+      margin: 8px 0 14px;
+
+      font-size: 15px;
+
+      background: #fffaff;
+
+    }
+
+    textarea {
+
+      min-height: 95px;
+
+      resize: vertical;
+
+    }
+
+    button {
+
+      background: #d63384;
+
+      color: white;
+
+      border: none;
+
+      padding: 12px 18px;
+
+      border-radius: 18px;
+
+      cursor: pointer;
+
+      font-size: 15px;
+
+      font-weight: bold;
+
+      box-shadow: 0 8px 18px rgba(214, 51, 132, 0.25);
+
+      margin-top: 5px;
+
+    }
+
+    button:hover {
+
+      background: #b91d68;
+
+    }
+
+    .progress-bg {
+
+      width: 100%;
+
+      height: 26px;
+
       background: #ffe3ec;
 
-      padding: 15px;
+      border-radius: 30px;
 
-      border-radius: 12px;
+      overflow: hidden;
 
       margin: 15px 0;
 
     }
 
-    li {
+    .progress-fill {
+
+      height: 100%;
+
+      width: 0%;
+
+      background: linear-gradient(90deg, #ff5fa2, #d63384);
+
+      border-radius: 30px;
+
+      transition: 0.4s;
+
+    }
+
+    .big-number {
+
+      font-size: 28px;
+
+      font-weight: bold;
+
+      color: #d63384;
 
       margin: 8px 0;
+
+    }
+
+    .checklist label {
+
+      display: block;
+
+      background: #fff0f6;
+
+      margin: 10px 0;
+
+      padding: 12px;
+
+      border-radius: 16px;
+
+      cursor: pointer;
+
+    }
+
+    .checklist input {
+
+      width: auto;
+
+      margin-right: 8px;
+
+    }
+
+    .meal-box {
+
+      background: #fff0f6;
+
+      padding: 12px;
+
+      border-radius: 16px;
+
+      margin: 10px 0;
+
+    }
+
+    .quote {
+
+      font-style: italic;
+
+      color: #8a2f5a;
+
+      text-align: center;
+
+      font-size: 17px;
+
+    }
+
+    .footer {
+
+      text-align: center;
+
+      margin: 25px 0 10px;
+
+      color: #9b4f71;
+
+      font-size: 14px;
+
+    }
+
+    .small {
+
+      font-size: 13px;
+
+      color: #8a5a6f;
 
     }
 
@@ -68,83 +284,299 @@
 
 <body>
 
-  <div class="box">
+  <div class="container">
 
-    <h1>Ashi's 55 KG Meal Plan</h1>
+    <div class="hero">
 
-    <h2>Current: 71 kg | Goal: 55 kg</h2>
+      <h1>🌸 Ashi's Pink Diet Tracker 🌸</h1>
 
-    <div class="card">
+      <p class="subtitle">From 71 kg to 55 kg — soft, strong, consistent.</p>
 
-      <h3>Daily Targets</h3>
-
-      <ul>
-
-        <li>Calories: 1400–1500</li>
-
-        <li>Protein: 90–100g</li>
-
-        <li>Water: 2.5–3L</li>
-
-        <li>Steps: 8,000–10,000</li>
-
-      </ul>
+      <p class="quote">“One day at a time. No guilt. Just progress.”</p>
 
     </div>
 
-    <div class="card">
+    <div class="grid">
 
-      <h3>Breakfast</h3>
+      <div class="card">
 
-      <p>Oats chilla / 1 plain parantha + curd / 2 eggs + toast</p>
+        <h2>⚖️ Weight Progress</h2>
+
+        <label>Current Weight</label>
+
+        <input type="number" id="currentWeight" placeholder="Example: 71">
+
+        <label>Goal Weight</label>
+
+        <input type="number" id="goalWeight" placeholder="Example: 55">
+
+        <button onclick="saveWeight()">Save Weight</button>
+
+        <div class="progress-bg">
+
+          <div class="progress-fill" id="progressFill"></div>
+
+        </div>
+
+        <p class="big-number" id="progressText">0% done</p>
+
+        <p class="small" id="kgLeft">Add your weight to start.</p>
+
+      </div>
+
+      <div class="card">
+
+        <h2>✅ Daily Checklist</h2>
+
+        <div class="checklist">
+
+          <label><input type="checkbox" class="task"> 8,000–10,000 steps</label>
+
+          <label><input type="checkbox" class="task"> 2.5L water</label>
+
+          <label><input type="checkbox" class="task"> Protein in every meal</label>
+
+          <label><input type="checkbox" class="task"> No binge / no guilt</label>
+
+          <label><input type="checkbox" class="task"> 20 min workout / walk</label>
+
+        </div>
+
+        <button onclick="saveChecklist()">Save Checklist</button>
+
+        <button onclick="resetChecklist()">Reset Today</button>
+
+      </div>
+
+      <div class="card">
+
+        <h2>🍳 Breakfast</h2>
+
+        <textarea id="breakfast">Oats chilla / eggs / 1 parantha + curd</textarea>
+
+      </div>
+
+      <div class="card">
+
+        <h2>🥗 Lunch</h2>
+
+        <textarea id="lunch">2 roti + dal/chicken/paneer + sabzi + salad</textarea>
+
+      </div>
+
+      <div class="card">
+
+        <h2>🍓 Evening Snack</h2>
+
+        <textarea id="snack">Greek yogurt / roasted chana / eggs / fruit</textarea>
+
+      </div>
+
+      <div class="card">
+
+        <h2>🌙 Dinner</h2>
+
+        <textarea id="dinner">Paneer bhurji / chicken / soup / dal + sabzi</textarea>
+
+      </div>
+
+      <div class="card">
+
+        <h2>💧 Water Tracker</h2>
+
+        <label>Glasses of water today</label>
+
+        <input type="number" id="water" placeholder="Example: 8">
+
+        <button onclick="saveWater()">Save Water</button>
+
+        <p class="big-number" id="waterText">0 glasses</p>
+
+      </div>
+
+      <div class="card">
+
+        <h2>📝 Notes / Cravings</h2>
+
+        <textarea id="notes" placeholder="Write cravings, mood, period, hunger, wins..."></textarea>
+
+        <button onclick="saveNotes()">Save Notes</button>
+
+      </div>
 
     </div>
 
-    <div class="card">
+    <div class="card" style="margin-top:18px;">
 
-      <h3>Lunch</h3>
+      <h2>💖 My Rules</h2>
 
-      <p>2 rotis + dal/chicken/paneer + sabzi + salad</p>
+      <div class="meal-box">No starving. Weight loss needs consistency, not punishment.</div>
 
-    </div>
+      <div class="meal-box">If I overeat, I restart from the next meal. Not Monday. Not tomorrow.</div>
 
-    <div class="card">
-
-      <h3>Evening Snack</h3>
-
-      <p>Greek yogurt / fruit / eggs / roasted chana</p>
+      <div class="meal-box">Protein first. Walk daily. Sleep better. Stay soft but disciplined.</div>
 
     </div>
 
-    <div class="card">
+    <div class="footer">
 
-      <h3>Dinner</h3>
-
-      <p>Chicken/paneer bhurji + roti OR soup + eggs OR dal + sabzi</p>
-
-    </div>
-
-    <div class="card">
-
-      <h3>Rules</h3>
-
-      <ul>
-
-        <li>No starving</li>
-
-        <li>No guilt after eating</li>
-
-        <li>Walk daily</li>
-
-        <li>Protein in every meal</li>
-
-        <li>One bad meal does not ruin progress</li>
-
-      </ul>
+      Made with pink energy for Ashi ✨
 
     </div>
 
   </div>
+
+  <script>
+
+    const startWeight = 71;
+
+    function saveWeight() {
+
+      const current = document.getElementById("currentWeight").value;
+
+      const goal = document.getElementById("goalWeight").value;
+
+      localStorage.setItem("currentWeight", current);
+
+      localStorage.setItem("goalWeight", goal);
+
+      updateProgress();
+
+    }
+
+    function updateProgress() {
+
+      const current = Number(localStorage.getItem("currentWeight")) || 71;
+
+      const goal = Number(localStorage.getItem("goalWeight")) || 55;
+
+      document.getElementById("currentWeight").value = current;
+
+      document.getElementById("goalWeight").value = goal;
+
+      const totalToLose = startWeight - goal;
+
+      const lost = startWeight - current;
+
+      let percent = Math.round((lost / totalToLose) * 100);
+
+      if (percent < 0) percent = 0;
+
+      if (percent > 100) percent = 100;
+
+      document.getElementById("progressFill").style.width = percent + "%";
+
+      document.getElementById("progressText").innerText = percent + "% done";
+
+      document.getElementById("kgLeft").innerText = (current - goal).toFixed(1) + " kg left to goal";
+
+    }
+
+    function saveChecklist() {
+
+      const tasks = document.querySelectorAll(".task");
+
+      const values = [];
+
+      tasks.forEach(task => values.push(task.checked));
+
+      localStorage.setItem("checklist", JSON.stringify(values));
+
+      alert("Checklist saved 💕");
+
+    }
+
+    function loadChecklist() {
+
+      const saved = JSON.parse(localStorage.getItem("checklist") || "[]");
+
+      const tasks = document.querySelectorAll(".task");
+
+      tasks.forEach((task, index) => {
+
+        task.checked = saved[index] || false;
+
+      });
+
+    }
+
+    function resetChecklist() {
+
+      const tasks = document.querySelectorAll(".task");
+
+      tasks.forEach(task => task.checked = false);
+
+      localStorage.removeItem("checklist");
+
+    }
+
+    function saveWater() {
+
+      const water = document.getElementById("water").value;
+
+      localStorage.setItem("water", water);
+
+      document.getElementById("waterText").innerText = water + " glasses";
+
+    }
+
+    function saveNotes() {
+
+      localStorage.setItem("notes", document.getElementById("notes").value);
+
+      localStorage.setItem("breakfast", document.getElementById("breakfast").value);
+
+      localStorage.setItem("lunch", document.getElementById("lunch").value);
+
+      localStorage.setItem("snack", document.getElementById("snack").value);
+
+      localStorage.setItem("dinner", document.getElementById("dinner").value);
+
+      alert("Saved 💗");
+
+    }
+
+    function loadSavedData() {
+
+      updateProgress();
+
+      loadChecklist();
+
+      document.getElementById("water").value = localStorage.getItem("water") || "";
+
+      document.getElementById("waterText").innerText = (localStorage.getItem("water") || 0) + " glasses";
+
+      document.getElementById("notes").value = localStorage.getItem("notes") || "";
+
+      if (localStorage.getItem("breakfast")) {
+
+        document.getElementById("breakfast").value = localStorage.getItem("breakfast");
+
+      }
+
+      if (localStorage.getItem("lunch")) {
+
+        document.getElementById("lunch").value = localStorage.getItem("lunch");
+
+      }
+
+      if (localStorage.getItem("snack")) {
+
+        document.getElementById("snack").value = localStorage.getItem("snack");
+
+      }
+
+      if (localStorage.getItem("dinner")) {
+
+        document.getElementById("dinner").value = localStorage.getItem("dinner");
+
+      }
+
+    }
+
+    window.onload = loadSavedData;
+
+  </script>
 
 </body>
 
