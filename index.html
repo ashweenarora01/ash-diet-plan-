@@ -8,17 +8,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Ashi's Diet Tracker</title>
+  <title>Ashi's Progress Tracker</title>
 
   <style>
 
-    * {
-
-      box-sizing: border-box;
-
-      font-family: Arial, sans-serif;
-
-    }
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
 
     body {
 
@@ -26,89 +20,49 @@
 
       min-height: 100vh;
 
-      background: linear-gradient(135deg, #ffe3ec, #fff7fb, #ffd1e3);
+      background: linear-gradient(135deg, #ffe1ec, #fff8fb, #ffd1e3);
 
       color: #3b2430;
 
-      padding: 20px;
+      padding: 18px;
 
     }
 
-    .container {
+    .container { max-width: 1050px; margin: auto; }
 
-      max-width: 950px;
+    .hero, .card {
 
-      margin: auto;
+      background: rgba(255,255,255,0.92);
 
-    }
+      border-radius: 26px;
 
-    .hero {
+      padding: 22px;
 
-      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 12px 32px rgba(214,51,132,0.16);
 
-      padding: 28px;
+      border: 1px solid #ffd1e3;
 
-      border-radius: 28px;
-
-      text-align: center;
-
-      box-shadow: 0 15px 40px rgba(214, 51, 132, 0.18);
-
-      border: 2px solid #ffd1e3;
-
-      margin-bottom: 22px;
+      margin-bottom: 18px;
 
     }
 
-    h1 {
+    .hero { text-align: center; }
 
-      color: #d63384;
+    h1 { color: #d63384; margin: 5px 0; font-size: 32px; }
 
-      font-size: 34px;
+    h2 { color: #c2185b; margin-top: 0; }
 
-      margin-bottom: 8px;
+    h3 { color: #d63384; }
 
-    }
-
-    .subtitle {
-
-      color: #7a3a59;
-
-      font-size: 16px;
-
-    }
+    .subtitle { color: #7a3a59; }
 
     .grid {
 
       display: grid;
 
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 
-      gap: 18px;
-
-    }
-
-    .card {
-
-      background: rgba(255, 255, 255, 0.9);
-
-      border-radius: 24px;
-
-      padding: 20px;
-
-      box-shadow: 0 10px 25px rgba(214, 51, 132, 0.14);
-
-      border: 1px solid #ffd1e3;
-
-    }
-
-    .card h2 {
-
-      margin-top: 0;
-
-      color: #c2185b;
-
-      font-size: 21px;
+      gap: 16px;
 
     }
 
@@ -120,9 +74,9 @@
 
       border-radius: 14px;
 
-      border: 1px solid #f5a8c7;
+      border: 1px solid #f3a6c5;
 
-      margin: 8px 0 14px;
+      margin: 7px 0 13px;
 
       font-size: 15px;
 
@@ -130,13 +84,7 @@
 
     }
 
-    textarea {
-
-      min-height: 95px;
-
-      resize: vertical;
-
-    }
+    textarea { min-height: 80px; resize: vertical; }
 
     button {
 
@@ -146,27 +94,23 @@
 
       border: none;
 
-      padding: 12px 18px;
+      padding: 11px 16px;
 
-      border-radius: 18px;
+      border-radius: 16px;
 
       cursor: pointer;
 
-      font-size: 15px;
-
       font-weight: bold;
 
-      box-shadow: 0 8px 18px rgba(214, 51, 132, 0.25);
-
-      margin-top: 5px;
+      margin: 5px 4px 5px 0;
 
     }
 
-    button:hover {
+    button:hover { background: #b91d68; }
 
-      background: #b91d68;
+    .danger { background: #8b1e3f; }
 
-    }
+    .danger:hover { background: #64132c; }
 
     .progress-bg {
 
@@ -180,7 +124,7 @@
 
       overflow: hidden;
 
-      margin: 15px 0;
+      margin: 12px 0;
 
     }
 
@@ -198,63 +142,79 @@
 
     }
 
-    .big-number {
+    .stat {
 
-      font-size: 28px;
+      background: #fff0f6;
+
+      padding: 14px;
+
+      border-radius: 18px;
+
+      text-align: center;
+
+    }
+
+    .stat .num {
+
+      font-size: 26px;
 
       font-weight: bold;
 
       color: #d63384;
 
-      margin: 8px 0;
+    }
+
+    .small { font-size: 13px; color: #8a5a6f; }
+
+    table {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      margin-top: 12px;
+
+      overflow: hidden;
+
+      border-radius: 14px;
 
     }
 
-    .checklist label {
+    th, td {
 
-      display: block;
+      padding: 11px;
 
-      background: #fff0f6;
+      border-bottom: 1px solid #ffd1e3;
 
-      margin: 10px 0;
+      text-align: left;
 
-      padding: 12px;
-
-      border-radius: 16px;
-
-      cursor: pointer;
+      font-size: 14px;
 
     }
 
-    .checklist input {
+    th {
 
-      width: auto;
+      background: #ffd6e6;
 
-      margin-right: 8px;
-
-    }
-
-    .meal-box {
-
-      background: #fff0f6;
-
-      padding: 12px;
-
-      border-radius: 16px;
-
-      margin: 10px 0;
+      color: #7a2048;
 
     }
 
-    .quote {
+    tr:nth-child(even) { background: #fff5f9; }
 
-      font-style: italic;
+    .pill {
 
-      color: #8a2f5a;
+      display: inline-block;
 
-      text-align: center;
+      background: #ffe3ec;
 
-      font-size: 17px;
+      padding: 7px 10px;
+
+      border-radius: 999px;
+
+      margin: 4px;
+
+      font-size: 13px;
 
     }
 
@@ -262,19 +222,23 @@
 
       text-align: center;
 
-      margin: 25px 0 10px;
-
       color: #9b4f71;
-
-      font-size: 14px;
-
-    }
-
-    .small {
 
       font-size: 13px;
 
-      color: #8a5a6f;
+      margin: 20px 0;
+
+    }
+
+    @media(max-width: 600px) {
+
+      body { padding: 10px; }
+
+      h1 { font-size: 26px; }
+
+      table { font-size: 12px; }
+
+      th, td { padding: 8px; }
 
     }
 
@@ -288,139 +252,147 @@
 
     <div class="hero">
 
-      <h1>🌸 Ashi's Pink Diet Tracker 🌸</h1>
+      <h1>🌸 Ashi's Pink Progress Tracker 🌸</h1>
 
-      <p class="subtitle">From 71 kg to 55 kg — soft, strong, consistent.</p>
+      <p class="subtitle">Daily weight, meals, steps, water and progress report.</p>
 
-      <p class="quote">“One day at a time. No guilt. Just progress.”</p>
-
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h2>⚖️ Weight Progress</h2>
-
-        <label>Current Weight</label>
-
-        <input type="number" id="currentWeight" placeholder="Example: 71">
-
-        <label>Goal Weight</label>
-
-        <input type="number" id="goalWeight" placeholder="Example: 55">
-
-        <button onclick="saveWeight()">Save Weight</button>
-
-        <div class="progress-bg">
-
-          <div class="progress-fill" id="progressFill"></div>
-
-        </div>
-
-        <p class="big-number" id="progressText">0% done</p>
-
-        <p class="small" id="kgLeft">Add your weight to start.</p>
-
-      </div>
-
-      <div class="card">
-
-        <h2>✅ Daily Checklist</h2>
-
-        <div class="checklist">
-
-          <label><input type="checkbox" class="task"> 8,000–10,000 steps</label>
-
-          <label><input type="checkbox" class="task"> 2.5L water</label>
-
-          <label><input type="checkbox" class="task"> Protein in every meal</label>
-
-          <label><input type="checkbox" class="task"> No binge / no guilt</label>
-
-          <label><input type="checkbox" class="task"> 20 min workout / walk</label>
-
-        </div>
-
-        <button onclick="saveChecklist()">Save Checklist</button>
-
-        <button onclick="resetChecklist()">Reset Today</button>
-
-      </div>
-
-      <div class="card">
-
-        <h2>🍳 Breakfast</h2>
-
-        <textarea id="breakfast">Oats chilla / eggs / 1 parantha + curd</textarea>
-
-      </div>
-
-      <div class="card">
-
-        <h2>🥗 Lunch</h2>
-
-        <textarea id="lunch">2 roti + dal/chicken/paneer + sabzi + salad</textarea>
-
-      </div>
-
-      <div class="card">
-
-        <h2>🍓 Evening Snack</h2>
-
-        <textarea id="snack">Greek yogurt / roasted chana / eggs / fruit</textarea>
-
-      </div>
-
-      <div class="card">
-
-        <h2>🌙 Dinner</h2>
-
-        <textarea id="dinner">Paneer bhurji / chicken / soup / dal + sabzi</textarea>
-
-      </div>
-
-      <div class="card">
-
-        <h2>💧 Water Tracker</h2>
-
-        <label>Glasses of water today</label>
-
-        <input type="number" id="water" placeholder="Example: 8">
-
-        <button onclick="saveWater()">Save Water</button>
-
-        <p class="big-number" id="waterText">0 glasses</p>
-
-      </div>
-
-      <div class="card">
-
-        <h2>📝 Notes / Cravings</h2>
-
-        <textarea id="notes" placeholder="Write cravings, mood, period, hunger, wins..."></textarea>
-
-        <button onclick="saveNotes()">Save Notes</button>
-
-      </div>
+      <p><span class="pill">Start: 71 kg</span><span class="pill">Goal: 55 kg</span><span class="pill">Target: Strong + toned</span></p>
 
     </div>
 
-    <div class="card" style="margin-top:18px;">
+    <div class="card">
 
-      <h2>💖 My Rules</h2>
+      <h2>📊 Progress Report</h2>
 
-      <div class="meal-box">No starving. Weight loss needs consistency, not punishment.</div>
+      <div class="progress-bg">
 
-      <div class="meal-box">If I overeat, I restart from the next meal. Not Monday. Not tomorrow.</div>
+        <div class="progress-fill" id="progressFill"></div>
 
-      <div class="meal-box">Protein first. Walk daily. Sleep better. Stay soft but disciplined.</div>
+      </div>
+
+      <div class="grid">
+
+        <div class="stat">
+
+          <div class="num" id="currentStat">--</div>
+
+          <div>Current Weight</div>
+
+        </div>
+
+        <div class="stat">
+
+          <div class="num" id="lostStat">--</div>
+
+          <div>Kg Lost</div>
+
+        </div>
+
+        <div class="stat">
+
+          <div class="num" id="leftStat">--</div>
+
+          <div>Kg Left</div>
+
+        </div>
+
+        <div class="stat">
+
+          <div class="num" id="entriesStat">0</div>
+
+          <div>Total Entries</div>
+
+        </div>
+
+      </div>
+
+      <p class="small" id="reportText">Add your first daily entry to generate report.</p>
+
+    </div>
+
+    <div class="card">
+
+      <h2>📝 Add Today's Entry</h2>
+
+      <div class="grid">
+
+        <div>
+
+          <label>Date</label>
+
+          <input type="date" id="date">
+
+        </div>
+
+        <div>
+
+          <label>Weight kg</label>
+
+          <input type="number" id="weight" step="0.1" placeholder="Example: 70.8">
+
+        </div>
+
+        <div>
+
+          <label>Calories</label>
+
+          <input type="number" id="calories" placeholder="Example: 1500">
+
+        </div>
+
+        <div>
+
+          <label>Protein g</label>
+
+          <input type="number" id="protein" placeholder="Example: 95">
+
+        </div>
+
+        <div>
+
+          <label>Steps</label>
+
+          <input type="number" id="steps" placeholder="Example: 10000">
+
+        </div>
+
+        <div>
+
+          <label>Water glasses</label>
+
+          <input type="number" id="water" placeholder="Example: 8">
+
+        </div>
+
+      </div>
+
+      <label>Meals / Notes / Cravings</label>
+
+      <textarea id="notes" placeholder="Example: Parantha + paneer, walked 8k, cravings at night..."></textarea>
+
+      <button onclick="saveEntry()">Save Daily Entry 💕</button>
+
+      <button onclick="clearForm()">Clear Form</button>
+
+    </div>
+
+    <div class="card">
+
+      <h2>📅 Daily History</h2>
+
+      <p class="small">Your entries save on this browser/device.</p>
+
+      <div id="history"></div>
+
+      <button onclick="exportData()">Export Backup</button>
+
+      <button class="danger" onclick="clearAll()">Delete All Entries</button>
 
     </div>
 
     <div class="footer">
 
-      Made with pink energy for Ashi ✨
+      Made for Ashi ✨ Pink discipline, no guilt.
 
     </div>
 
@@ -428,35 +400,211 @@
 
   <script>
 
-    const startWeight = 71;
+    const START_WEIGHT = 71;
 
-    function saveWeight() {
+    const GOAL_WEIGHT = 55;
 
-      const current = document.getElementById("currentWeight").value;
+    document.getElementById("date").valueAsDate = new Date();
 
-      const goal = document.getElementById("goalWeight").value;
+    function getEntries() {
 
-      localStorage.setItem("currentWeight", current);
-
-      localStorage.setItem("goalWeight", goal);
-
-      updateProgress();
+      return JSON.parse(localStorage.getItem("ashiEntries") || "[]");
 
     }
 
-    function updateProgress() {
+    function saveEntries(entries) {
 
-      const current = Number(localStorage.getItem("currentWeight")) || 71;
+      localStorage.setItem("ashiEntries", JSON.stringify(entries));
 
-      const goal = Number(localStorage.getItem("goalWeight")) || 55;
+    }
 
-      document.getElementById("currentWeight").value = current;
+    function saveEntry() {
 
-      document.getElementById("goalWeight").value = goal;
+      const entry = {
 
-      const totalToLose = startWeight - goal;
+        date: document.getElementById("date").value,
 
-      const lost = startWeight - current;
+        weight: Number(document.getElementById("weight").value),
+
+        calories: Number(document.getElementById("calories").value),
+
+        protein: Number(document.getElementById("protein").value),
+
+        steps: Number(document.getElementById("steps").value),
+
+        water: Number(document.getElementById("water").value),
+
+        notes: document.getElementById("notes").value
+
+      };
+
+      if (!entry.date || !entry.weight) {
+
+        alert("Date and weight are required.");
+
+        return;
+
+      }
+
+      let entries = getEntries();
+
+      const existingIndex = entries.findIndex(e => e.date === entry.date);
+
+      if (existingIndex >= 0) {
+
+        entries[existingIndex] = entry;
+
+      } else {
+
+        entries.push(entry);
+
+      }
+
+      entries.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      saveEntries(entries);
+
+      clearForm(false);
+
+      render();
+
+      alert("Daily entry saved 💗");
+
+    }
+
+    function clearForm(resetDate = true) {
+
+      document.getElementById("weight").value = "";
+
+      document.getElementById("calories").value = "";
+
+      document.getElementById("protein").value = "";
+
+      document.getElementById("steps").value = "";
+
+      document.getElementById("water").value = "";
+
+      document.getElementById("notes").value = "";
+
+      if (resetDate) document.getElementById("date").valueAsDate = new Date();
+
+    }
+
+    function deleteEntry(date) {
+
+      let entries = getEntries().filter(e => e.date !== date);
+
+      saveEntries(entries);
+
+      render();
+
+    }
+
+    function render() {
+
+      const entries = getEntries();
+
+      const history = document.getElementById("history");
+
+      document.getElementById("entriesStat").innerText = entries.length;
+
+      if (entries.length === 0) {
+
+        history.innerHTML = "<p>No entries yet.</p>";
+
+        updateReport(null);
+
+        return;
+
+      }
+
+      const latest = entries[0];
+
+      updateReport(latest);
+
+      let html = `
+
+        <table>
+
+          <tr>
+
+            <th>Date</th>
+
+            <th>Weight</th>
+
+            <th>Cal</th>
+
+            <th>Protein</th>
+
+            <th>Steps</th>
+
+            <th>Water</th>
+
+            <th>Notes</th>
+
+            <th></th>
+
+          </tr>
+
+      `;
+
+      entries.forEach(e => {
+
+        html += `
+
+          <tr>
+
+            <td>${e.date}</td>
+
+            <td>${e.weight} kg</td>
+
+            <td>${e.calories || "-"}</td>
+
+            <td>${e.protein || "-"}g</td>
+
+            <td>${e.steps || "-"}</td>
+
+            <td>${e.water || "-"}</td>
+
+            <td>${e.notes || "-"}</td>
+
+            <td><button class="danger" onclick="deleteEntry('${e.date}')">Delete</button></td>
+
+          </tr>
+
+        `;
+
+      });
+
+      html += "</table>";
+
+      history.innerHTML = html;
+
+    }
+
+    function updateReport(latest) {
+
+      if (!latest) {
+
+        document.getElementById("currentStat").innerText = "--";
+
+        document.getElementById("lostStat").innerText = "--";
+
+        document.getElementById("leftStat").innerText = "--";
+
+        document.getElementById("progressFill").style.width = "0%";
+
+        return;
+
+      }
+
+      const current = latest.weight;
+
+      const lost = START_WEIGHT - current;
+
+      const left = current - GOAL_WEIGHT;
+
+      const totalToLose = START_WEIGHT - GOAL_WEIGHT;
 
       let percent = Math.round((lost / totalToLose) * 100);
 
@@ -464,117 +612,53 @@
 
       if (percent > 100) percent = 100;
 
+      document.getElementById("currentStat").innerText = current + " kg";
+
+      document.getElementById("lostStat").innerText = lost.toFixed(1) + " kg";
+
+      document.getElementById("leftStat").innerText = left.toFixed(1) + " kg";
+
       document.getElementById("progressFill").style.width = percent + "%";
 
-      document.getElementById("progressText").innerText = percent + "% done";
+      document.getElementById("reportText").innerText =
 
-      document.getElementById("kgLeft").innerText = (current - goal).toFixed(1) + " kg left to goal";
+        percent + "% complete. You have lost " + lost.toFixed(1) +
 
-    }
-
-    function saveChecklist() {
-
-      const tasks = document.querySelectorAll(".task");
-
-      const values = [];
-
-      tasks.forEach(task => values.push(task.checked));
-
-      localStorage.setItem("checklist", JSON.stringify(values));
-
-      alert("Checklist saved 💕");
+        " kg and have " + left.toFixed(1) + " kg left.";
 
     }
 
-    function loadChecklist() {
+    function exportData() {
 
-      const saved = JSON.parse(localStorage.getItem("checklist") || "[]");
+      const entries = getEntries();
 
-      const tasks = document.querySelectorAll(".task");
+      const text = JSON.stringify(entries, null, 2);
 
-      tasks.forEach((task, index) => {
+      const blob = new Blob([text], { type: "application/json" });
 
-        task.checked = saved[index] || false;
+      const link = document.createElement("a");
 
-      });
+      link.href = URL.createObjectURL(blob);
 
-    }
+      link.download = "ashi-progress-backup.json";
 
-    function resetChecklist() {
-
-      const tasks = document.querySelectorAll(".task");
-
-      tasks.forEach(task => task.checked = false);
-
-      localStorage.removeItem("checklist");
+      link.click();
 
     }
 
-    function saveWater() {
+    function clearAll() {
 
-      const water = document.getElementById("water").value;
+      if (confirm("Delete all entries?")) {
 
-      localStorage.setItem("water", water);
+        localStorage.removeItem("ashiEntries");
 
-      document.getElementById("waterText").innerText = water + " glasses";
-
-    }
-
-    function saveNotes() {
-
-      localStorage.setItem("notes", document.getElementById("notes").value);
-
-      localStorage.setItem("breakfast", document.getElementById("breakfast").value);
-
-      localStorage.setItem("lunch", document.getElementById("lunch").value);
-
-      localStorage.setItem("snack", document.getElementById("snack").value);
-
-      localStorage.setItem("dinner", document.getElementById("dinner").value);
-
-      alert("Saved 💗");
-
-    }
-
-    function loadSavedData() {
-
-      updateProgress();
-
-      loadChecklist();
-
-      document.getElementById("water").value = localStorage.getItem("water") || "";
-
-      document.getElementById("waterText").innerText = (localStorage.getItem("water") || 0) + " glasses";
-
-      document.getElementById("notes").value = localStorage.getItem("notes") || "";
-
-      if (localStorage.getItem("breakfast")) {
-
-        document.getElementById("breakfast").value = localStorage.getItem("breakfast");
-
-      }
-
-      if (localStorage.getItem("lunch")) {
-
-        document.getElementById("lunch").value = localStorage.getItem("lunch");
-
-      }
-
-      if (localStorage.getItem("snack")) {
-
-        document.getElementById("snack").value = localStorage.getItem("snack");
-
-      }
-
-      if (localStorage.getItem("dinner")) {
-
-        document.getElementById("dinner").value = localStorage.getItem("dinner");
+        render();
 
       }
 
     }
 
-    window.onload = loadSavedData;
+    render();
 
   </script>
 
